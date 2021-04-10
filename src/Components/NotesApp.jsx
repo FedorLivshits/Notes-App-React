@@ -5,6 +5,7 @@ function NotesApp() {
     return (
         <section className="App">
             <div className="App-header">
+                NotesApp
                 <div className="container">
                     <div className="notes-form">
                         <textarea placeholder="write your note..."/>
