@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.css';
 
 function App() {
@@ -12,7 +12,6 @@ function NotesApp() {
       <section className="App">
         <div className="App-header">
         <div className="container">
-
             <div className="notes-form">
               <textarea placeholder="write your note..."/>
                 <button>Add</button>
