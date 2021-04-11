@@ -15,7 +15,7 @@ return (
         <textarea placeholder="write your note..." onChange={changeText} value={newTextareaText}/>
         <div className="notes-form__btns">
             <div className="note-colors">
-                {notesColors.map(c => <button className={(newNoteColor === c.color) ? `btn-color active ${c.color}` : `btn-color ${c.color}`} value={c.color} onClick={setColor}/>)}
+                {notesColors.map((c, index) => <button key={index} className={(newNoteColor === c.color) ? `btn-color active ${c.color}` : `btn-color ${c.color}`} value={c.color} onClick={setColor}/>)}
             </div>
             <button className="add-note__btn" disabled={!newTextareaText} onClick={addNote}>Add</button>
         </div>
