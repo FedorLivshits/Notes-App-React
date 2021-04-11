@@ -1,10 +1,10 @@
 import React from "react";
 
-import {addNote, setNewTextareaText} from "../redux/note-reducer";
+import {addNote, deleteNote, setNewTextareaText, showFullNote} from "../redux/note-reducer";
 import {connect} from "react-redux";
 
 
-function NotesApp({notes, newTextareaText, setNewTextareaText, addNote}) {
+function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFullNote, deleteNote}) {
     const changeText = (e) => {
         let text = e.target.value
         setNewTextareaText(text)
@@ -19,10 +19,10 @@ function NotesApp({notes, newTextareaText, setNewTextareaText, addNote}) {
                 <div className="container">
                     <div className="notes-form">
                         <textarea placeholder="write your note..." onChange={changeText} value={newTextareaText}/>
-                        <button onClick={addNewNote}>Add</button>
+                        <button className="add-note__btn" onClick={addNewNote}>Add</button>
                     </div>
                     <div className="notes-content">
-                        <Note notes={notes}/>
+                        <Note notes={notes} showFullNote={showFullNote} deleteNote={deleteNote}/>
                     </div>
                 </div>
             </div>
@@ -30,13 +30,18 @@ function NotesApp({notes, newTextareaText, setNewTextareaText, addNote}) {
     );
 }
 
-function Note({notes}) {
-    return ( <>
-        {notes.map(n => <div className="note" id={n.id}>
-                {n.text}
+function Note({notes, showFullNote, deleteNote}) {
+    const showNote = (id) => {
+        showFullNote(id)
+    }
+    return (notes.map(n =>
+            <div className="note">
+                <div key={n.id} onClick={() => showNote(n.id)}>
+                    {n.text}
+                </div>
+                <button className="delete-note__btn" onClick={() => deleteNote(n.id)}>X</button>
             </div>
-        )}
-        </>
+        )
     )
 }
 
@@ -48,4 +53,4 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {setNewTextareaText, addNote})(NotesApp)
+export default connect(mapStateToProps, {setNewTextareaText, addNote, showFullNote, deleteNote})(NotesApp)
