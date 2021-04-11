@@ -19,7 +19,7 @@ function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFull
                 <div className="container">
                     <div className="notes-form">
                         <textarea placeholder="write your note..." onChange={changeText} value={newTextareaText}/>
-                        <button className="add-note__btn" onClick={addNewNote}>Add</button>
+                        <button className="add-note__btn" disabled={!newTextareaText} onClick={addNewNote}>Add</button>
                     </div>
                     <div className="notes-content">
                         <Note notes={notes} showFullNote={showFullNote} deleteNote={deleteNote}/>
@@ -36,7 +36,7 @@ function Note({notes, showFullNote, deleteNote}) {
     }
     return (notes.map(n =>
             <div className="note">
-                <div key={n.id} onClick={() => showNote(n.id)}>
+                <div className="note-title" key={n.id} onClick={() => showNote(n.id)}>
                     {n.text}
                 </div>
                 <button className="delete-note__btn" onClick={() => deleteNote(n.id)}>X</button>
