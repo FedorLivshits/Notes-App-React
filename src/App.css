@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 .App {
     text-align: center;
 }
@@ -32,7 +31,7 @@
     padding: 16px;
     margin: 16px auto;
     background-color: white;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -47,7 +46,8 @@ textarea {
     font-weight: 300;
     outline: none;
 }
-.notes-form__btns{
+
+.notes-form__btns {
     display: flex;
     justify-content: space-between;
 }
@@ -62,16 +62,18 @@ textarea {
     font-weight: 400;
     font-size: 15px;
     margin-left: 5px;
-    background: #4925ce;
+    background: #3617a7;
     cursor: pointer;
     transition: all 0.3s ease;
     height: 40px;
 }
-.add-note__btn:disabled{
+
+.add-note__btn:disabled {
     background: #9177f1;
     cursor: default;
 }
-.btn-color{
+
+.btn-color {
     padding: 20px 20px;
     border-radius: 50px;
     border: none;
@@ -81,6 +83,7 @@ textarea {
     cursor: pointer;
     position: relative;
 }
+
 .btn-color.active::before {
     content: "";
     background-image: url("assets/images/check-icon.svg");
@@ -92,21 +95,24 @@ textarea {
     transform: translateY(-50%);
 }
 
-.yellow{
-    background-color: rgba(255, 206, 82, 0.8);
+.yellow {
+    background: linear-gradient(to bottom, rgba(255, 206, 82, 0.8) 0%, rgba(224, 168, 22, 0.92) 100%);
 }
 
-.green{
-    background-color: rgba(189, 255, 82, 0.8);
+.green {
+    background: linear-gradient(to bottom, rgba(189, 255, 82, 0.8) 0%, rgba(142, 215, 26, 0.86) 100%);
 }
-.blue{
-    background-color: rgba(82, 229, 255, 0.8);
+
+.blue {
+    background: linear-gradient(to bottom, rgba(82, 229, 255, 0.8) 0%, rgba(50, 189, 213, 0.8) 100%);
 }
-.red{
-    background-color: rgba(255, 117, 82, 0.8);
+
+.red {
+    background: linear-gradient(to bottom, rgba(255, 117, 82, 0.8) 0%, rgba(193, 69, 38, 0.8) 100%);
 }
-.grey{
-    background-color: rgba(199, 199, 199, 0.8);
+
+.grey {
+    background: linear-gradient(to bottom, rgba(199, 199, 199, 0.8) 0%, rgb(175, 175, 175) 100%);
 }
 
 .notes-content {
@@ -117,7 +123,7 @@ textarea {
 }
 
 .note {
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
     border-radius: 5px;
     width: 100px;
@@ -125,26 +131,26 @@ textarea {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    color: #102b7b;
+    color: #0a1e57;
     font-size: 15px;
     cursor: pointer;
     position: relative;
-
 }
-.note-title{
+
+.note-title {
     width: 80px;
     height: 74px;
     overflow: hidden;
     margin: 0 auto;
 }
 
-.delete-note__btn{
+.delete-note__btn {
     position: absolute;
     color: #ffffff;
     bottom: 0;
     right: 0;
     padding: 5px 10px;
-    background-color: #8652ff;
+    background: #3617a7;
     border-top-left-radius: 5px;
     border: none;
     outline: none;
@@ -182,7 +188,7 @@ textarea {
     background-color: #cccccc;
     background-clip: padding-box;
     border: solid transparent;
-    border-width: 1px 1px 1px 0px;
+    border-width: 1px 1px 1px 0;
     min-height: 28px;
     padding: 100px 0 0;
     box-shadow: inset 1px 1px 0 #e6e6e6, inset 0 -1px 0 #eeeeee

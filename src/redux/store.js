@@ -1,5 +1,5 @@
 import {combineReducers, compose, createStore} from "redux";
-import noteReducer from "./note-reducer";
+import noteReducer from "./reducers/note-reducer";
 
 let reducers = combineReducers({
     notes: noteReducer,
