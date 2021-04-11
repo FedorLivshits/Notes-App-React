@@ -4,7 +4,7 @@ import {addNote, deleteNote, setNewTextareaText, showFullNote} from "../redux/no
 import {connect} from "react-redux";
 
 
-function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFullNote, deleteNote}) {
+function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFullNote, deleteNote, notesColors}) {
     const changeText = (e) => {
         let text = e.target.value
         setNewTextareaText(text)
@@ -19,7 +19,13 @@ function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFull
                 <div className="container">
                     <div className="notes-form">
                         <textarea placeholder="write your note..." onChange={changeText} value={newTextareaText}/>
-                        <button className="add-note__btn" disabled={!newTextareaText} onClick={addNewNote}>Add</button>
+                        <div className="notes-form__btns">
+                            <div className="note-colors">
+                                {notesColors.map(c => <button className={`btn-color ${c.color}`}/>)}
+                            </div>
+                            <button className="add-note__btn" disabled={!newTextareaText} onClick={addNewNote}>Add</button>
+                        </div>
+
                     </div>
                     <div className="notes-content">
                         <Note notes={notes} showFullNote={showFullNote} deleteNote={deleteNote}/>
@@ -48,7 +54,8 @@ function Note({notes, showFullNote, deleteNote}) {
 let mapStateToProps = (state) => {
     return {
         notes: state.notes.notes,
-        newTextareaText: state.notes.newTextareaText
+        newTextareaText: state.notes.newTextareaText,
+        notesColors: state.notes.notesColors
     }
 }
 

@@ -47,10 +47,13 @@ textarea {
     font-weight: 300;
     outline: none;
 }
+.notes-form__btns{
+    display: flex;
+    justify-content: space-between;
+}
 
 .add-note__btn {
     margin-top: 15px;
-    align-self: flex-end;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -67,6 +70,30 @@ textarea {
 .add-note__btn:disabled{
     background: #9177f1;
     cursor: default;
+}
+.btn-color{
+    padding: 20px 20px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.yellow{
+    background-color: #ffce52;
+}
+.green{
+    background-color: #bdff52;
+}
+.blue{
+    background-color: #52e5ff;
+}
+.red{
+    background-color: #ff7552;
+}
+.grey{
+    background-color: #c7c7c7;
 }
 
 .notes-content {

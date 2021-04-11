@@ -7,10 +7,11 @@ let noteId = 4
 
 let initialState = {
     notes: [
-        {id: 1, text: "как дела?"},
-        {id: 2, text: "новая заметка"},
-        {id: 3, text: "react-redux"}
+        {id: 1, text: "как дела?", color: "yellow"},
+        {id: 2, text: "новая заметка", color: "yellow"},
+        {id: 3, text: "react-redux", color: "yellow"}
     ],
+    notesColors: [{color: "yellow"}, {color: "green"}, {color: "blue"}, {color: "red"}, {color: "grey"}],
     newTextareaText: ""
 }
 
