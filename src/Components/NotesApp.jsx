@@ -1,16 +1,20 @@
 import React from "react";
 
-import {addNote, deleteNote, setNewTextareaText, showFullNote} from "../redux/note-reducer";
+import {addNote, deleteNote, setNewTextareaText, setNoteColor, showFullNote} from "../redux/note-reducer";
 import {connect} from "react-redux";
 
 
-function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFullNote, deleteNote, notesColors}) {
+function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFullNote, deleteNote, notesColors, setNoteColor, newNoteColor}) {
     const changeText = (e) => {
         let text = e.target.value
         setNewTextareaText(text)
     }
     const addNewNote = () => {
         addNote()
+    }
+    const setColor = (e) => {
+        let colorValue = e.target.value
+        setNoteColor(colorValue)
     }
     return (
         <section className="App">
@@ -21,7 +25,7 @@ function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFull
                         <textarea placeholder="write your note..." onChange={changeText} value={newTextareaText}/>
                         <div className="notes-form__btns">
                             <div className="note-colors">
-                                {notesColors.map(c => <button className={`btn-color ${c.color}`}/>)}
+                                {notesColors.map(c => <button className={(newNoteColor === c.color) ? `btn-color active ${c.color}` : `btn-color ${c.color}`} value={c.color} onClick={setColor}/>)}
                             </div>
                             <button className="add-note__btn" disabled={!newTextareaText} onClick={addNewNote}>Add</button>
                         </div>
@@ -41,7 +45,7 @@ function Note({notes, showFullNote, deleteNote}) {
         showFullNote(id)
     }
     return (notes.map(n =>
-            <div className="note">
+            <div className={`note ${n.color}`}>
                 <div className="note-title" key={n.id} onClick={() => showNote(n.id)}>
                     {n.text}
                 </div>
@@ -55,9 +59,10 @@ let mapStateToProps = (state) => {
     return {
         notes: state.notes.notes,
         newTextareaText: state.notes.newTextareaText,
-        notesColors: state.notes.notesColors
+        notesColors: state.notes.notesColors,
+        newNoteColor: state.notes.newNoteColor
     }
 }
 
 
-export default connect(mapStateToProps, {setNewTextareaText, addNote, showFullNote, deleteNote})(NotesApp)
+export default connect(mapStateToProps, {setNewTextareaText, addNote, showFullNote, deleteNote, setNoteColor})(NotesApp)

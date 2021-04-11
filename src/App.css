@@ -79,21 +79,34 @@ textarea {
     margin-top: 15px;
     margin-right: 10px;
     cursor: pointer;
+    position: relative;
 }
+.btn-color.active::before {
+    content: "";
+    background-image: url("assets/images/check-icon.svg");
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    transform: translateY(-50%);
+}
+
 .yellow{
-    background-color: #ffce52;
+    background-color: rgba(255, 206, 82, 0.8);
 }
+
 .green{
-    background-color: #bdff52;
+    background-color: rgba(189, 255, 82, 0.8);
 }
 .blue{
-    background-color: #52e5ff;
+    background-color: rgba(82, 229, 255, 0.8);
 }
 .red{
-    background-color: #ff7552;
+    background-color: rgba(255, 117, 82, 0.8);
 }
 .grey{
-    background-color: #c7c7c7;
+    background-color: rgba(199, 199, 199, 0.8);
 }
 
 .notes-content {
@@ -112,7 +125,6 @@ textarea {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    background-color: #ffce52;
     color: #102b7b;
     font-size: 15px;
     cursor: pointer;
