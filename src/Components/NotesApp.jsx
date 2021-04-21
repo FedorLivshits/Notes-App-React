@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import {addNote, deleteNote, setNewTextareaText, setNoteColor, showFullNote} from "../redux/reducers/note-reducer";
 import {connect} from "react-redux";
 import Note from "./Note/Note";
 import NotesForm from "./NotesForm/NotesForm";
 
-
 function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFullNote, deleteNote, notesColors, setNoteColor, newNoteColor}) {
+
+    useEffect( () => {
+        localStorage.setItem("notes", JSON.stringify(notes));
+    }, [notes])
 
     return (
         <section className="App">

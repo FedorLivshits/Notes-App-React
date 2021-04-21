@@ -7,24 +7,10 @@ const SET_NOTE_COLOR = 'SET_NOTE_COLOR';
 let noteId = 4
 
 let initialState = {
-    notes: [
-        {id: 1, text: "Нажмите, чтобы посмотреть заметку", color: "green"},
-        {id: 2, text: "Заметался пожар голубой,\n" +
-                "Позабылись родимые дали.\n" +
-                "В первый раз я запел про любовь,\n" +
-                "В первый раз отрекаюсь скандалить.\n" +
-                "\n" +
-                "Был я весь — как запущенный сад,\n" +
-                "Был на женщин и зелие падкий.\n" +
-                "Разонравилось пить и плясать\n" +
-                "И терять свою жизнь без оглядки.\n" +
-                "\n" +
-                "Мне бы только смотреть на тебя,\n" +
-                "Видеть глаз злато-карий омут,\n" +
-                "И чтоб, прошлое не любя,\n" +
-                "Ты уйти не смогла к другому.", color: "yellow"},
-        {id: 3, text: "HTML5, CSS3, Sass, Js, React, Redux, REST API", color: "blue"}
-    ],
+    notes:
+        localStorage.getItem("notes")
+            ? JSON.parse(localStorage.getItem("notes"))
+            : [],
     notesColors: [{color: "yellow"}, {color: "green"}, {color: "blue"}, {color: "red"}, {color: "grey"}],
     newTextareaText: "",
     newNoteColor: "yellow"
