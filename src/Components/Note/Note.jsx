@@ -5,7 +5,7 @@ function Note({notes, showFullNote, deleteNote}) {
         <div className="overlay">
             <div key={n.id} className={`note ${n.color}`}>
                 <div className="note-title" onClick={() => showFullNote(n.id)}>
-                    {n.text}
+                    {n.noteTitle}
                 </div>
                 <button className="delete-note__btn" onClick={() => deleteNote(n.id)}>X</button>
             </div>

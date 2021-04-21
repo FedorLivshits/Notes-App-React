@@ -24,7 +24,9 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
-
+.title-brand{
+    margin-bottom: 20px;
+}
 .notes-form {
     width: 600px;
     height: 250px;
@@ -35,6 +37,16 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+}
+input{
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    font-weight: 300;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 5px 5px 16px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 textarea {
@@ -62,7 +74,7 @@ textarea {
     font-weight: 400;
     font-size: 15px;
     margin-left: 5px;
-    background: #3617a7;
+    background: #232b6c;
     cursor: pointer;
     transition: all 0.3s ease;
     height: 40px;
@@ -137,20 +149,20 @@ textarea {
 }
 
 .note-title {
+    padding-top: 10px;
     width: 80px;
     height: 74px;
     overflow: hidden;
     margin: 0 auto;
 }
+
 .delete-note__btn {
     position: absolute;
     color: #ffffff;
     bottom: 0;
     right: 0;
     padding: 5px 10px;
-    /*background: #3617a7;*/
     background: rgba(7, 20, 85, 0.7);
-    border-top-left-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -158,23 +170,11 @@ textarea {
     transition: all 0.3s ease;
     width: 100%;
 }
-.delete-note__btn:hover{
+.note-title:hover + .delete-note__btn, .delete-note__btn:hover{
     opacity: 1;
-}
-.inner-card-title{
-    background: rgba(0, 0, 0, 0.8);
-    color:white;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    border-radius: 5px;
-    opacity: 0;
-    padding: 5px;
     transition: all 0.3s ease;
 }
-.movie-card:hover .inner-card-title {
-    opacity: 1;
-}
+
 /*----------------scroll---------------*/
 ::-webkit-scrollbar {
     height: 16px;

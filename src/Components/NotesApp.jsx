@@ -14,7 +14,9 @@ function NotesApp({notes, newTextareaText, setNewTextareaText, addNote, showFull
     return (
         <section className="App">
             <div className="App-header">
-                NotesApp
+                <div className="title-brand">
+                    NotesApp
+                </div>
                 <div className="container">
                     <NotesForm newTextareaText={newTextareaText} addNote={addNote} notesColors={notesColors}
                                newNoteColor={newNoteColor} setNewTextareaText={setNewTextareaText}

@@ -22,7 +22,7 @@ const noteReducer = (state = initialState, action) => {
             return {...state, newTextareaText: action.newTextareaText}
         }
         case ADD_NOTE: {
-            let note = {id: noteId++, text: state.newTextareaText, color: state.newNoteColor}
+            let note = {id: noteId++, noteTitle: action.title, text: state.newTextareaText, color: state.newNoteColor}
             return {...state, notes: [...state.notes, note], newTextareaText: ""}
         }
         case SHOW_FULL_NOTE: {
@@ -48,7 +48,7 @@ const noteReducer = (state = initialState, action) => {
 }
 
 export const setNewTextareaText = (newTextareaText) => ({type: SET_NEW_TEXTAREA_TEXT, newTextareaText});
-export const addNote = () => ({type: ADD_NOTE});
+export const addNote = (title) => ({type: ADD_NOTE, title});
 export const showFullNote = (id) => ({type: SHOW_FULL_NOTE, id});
 export const deleteNote = (id) => ({type: DELETE_NOTE, id});
 export const setNoteColor = (color) => ({type: SET_NOTE_COLOR, color});
